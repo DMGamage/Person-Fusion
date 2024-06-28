@@ -10,6 +10,8 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts.prompt import PromptTemplate
 from dotenv import load_dotenv
 
+from tools.tool import get_profile_url_tavily
+
 load_dotenv()
 
 
@@ -28,7 +30,7 @@ def lookup(name: str) -> str:
     tools_for_agent = [
         Tool(
             name="Crawl Google 4 linkedin profile page",
-            func="?",
+            func=get_profile_url_tavily,
             description="useful for when you need get the Linkedin Page URL",
         )
     ]
